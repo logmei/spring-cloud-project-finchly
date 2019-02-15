@@ -1,0 +1,21 @@
+server:
+  port: 8702
+spring:
+  application:
+    name: eureka-consumer
+eureka:
+  instance:
+    #指定显示服务的ip
+    prefer-ip-address: true
+    #续约到期持续时间 开发测试使用
+    lease-expiration-duration-in-seconds: 10
+    #续约重建间隔时间 开发测试使用
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone:  http://localhost:7001/eureka
+      #开启健康检查
+    healthcheck:
+        enabled: true
+
+

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #是否注册到其他Eureka Server实例
+    register-with-eureka: false
+    #是否要到其他Eureka server实例获取数据源
+    fetch-registry: false
+    #当前服务地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    #一下配置为开发测试时使用 生成环境用默认值
+    #由于eureka server 清理无效节点周期长（默认90秒），已经自我保护等原因，可能遇到微服务注销慢甚至不注销的问题
+    #关闭自我保护
+    enable-self-preservation: false
+    #清理间隔 默认（60*1000）
+    eviction-interval-timer-in-ms: 20000
+

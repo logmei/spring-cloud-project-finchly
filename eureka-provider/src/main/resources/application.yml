@@ -1,0 +1,22 @@
+server:
+  port: 8701
+
+
+
+spring:
+  application:
+    #注册到eureka-server上的服务名称
+    name: eureka-provider
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/microservice01?charactorEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: S@feinis12345678
+eureka:
+  client:
+    service-url:
+      #指定eureka server通信地址，eureka小尾巴不能丢
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    #是否注册ip到eureka server,若不指定或为false,就会注册主机名到eureka server中
+    prefer-ip-address: true
